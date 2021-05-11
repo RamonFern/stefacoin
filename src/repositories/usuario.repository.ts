@@ -6,6 +6,11 @@ class UsuarioRepository extends Repository<Usuario> {
   constructor() {
     super(Tables.USUARIO);
   }
+
+  async incluir(usuario: Usuario){
+    return super.incluir(usuario);
+  }
+ 
 }
 
 export default new UsuarioRepository();
