@@ -19,7 +19,6 @@ export default class ProfessorController {
     return await ProfessorRepository.listar({tipo: { $eq: 1 }});
   }
 
-  // #pegabandeira
   async incluir(professor: Professor) {
     const { nome, email, senha } = professor;
 
@@ -36,12 +35,16 @@ export default class ProfessorController {
   async alterar(id: number, professor: Professor) {
     const { nome, email, senha } = professor;
 
+
     Validador.validarParametros([{ id }, { nome }, { email }, { senha }]);
 
     await ProfessorRepository.alterar({ id }, professor);
 
     return new Mensagem('Professor alterado com sucesso!', {
       id,
+      nome,
+      email,
+      senha
     });
   }
 

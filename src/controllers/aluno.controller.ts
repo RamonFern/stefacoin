@@ -13,13 +13,12 @@ export default class AlunoController {
   async obter(filtro: FilterQuery<Aluno> = {}): Promise<Aluno> {
     return await AlunoRepository.obter(filtro);
   }
-
-  // #pegabandeira
+  
   async listar(filtro: FilterQuery<Aluno> = {}): Promise<Aluno[]> {
-    return await AlunoRepository.listar(filtro);
+    return await AlunoRepository.listar({tipo: { $eq: 2 }});
   }
 
-  // #pegabandeira
+ 
   async incluir(aluno: Aluno) {
     const { nome, formacao, idade, email, senha } = aluno;
     Validador.validarParametros([{ nome }, { formacao }, { idade }, { email }, { senha }]);

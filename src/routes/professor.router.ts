@@ -17,6 +17,7 @@ router.post('/professor', async (req: Request, res: Response, next: NextFunction
 router.put('/professor/:id', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
+
     const mensagem: Mensagem = await new ProfessorController().alterar(Number(id), req.body);
     res.json(mensagem);
   } catch (e) {

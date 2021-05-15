@@ -22,6 +22,8 @@ class ProfessorRepository extends Repository<Professor> {
     }
     return super.alterar(filtro, professor);
   }
+  
 }
+
 
 export default new ProfessorRepository();
